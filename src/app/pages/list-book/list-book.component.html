@@ -1,11 +1,12 @@
 <header class="navbar navbar-expand-lg fixed-top list-head">
-  <div class="container justify-content-left">
+  <div class="container">
     <label for="genresList">Genres</label>
     <select class="form-control" id="genresList">
-      <option>1</option>
+      <option *ngFor="let genre of genres">{{genre.genresName}}</option>
     </select>
 </div>
 </header>
+<div class="table-responsive">
 <table class="table table-striped list-box">
   <thead>
     <tr>
@@ -13,17 +14,24 @@
       <th scope="col">Sub Title</th>
       <th scope="col">Autor</th>
       <th scope="col">Genres</th>
+      <th scope="col">Publicher</th>
       <th scope="col">Edition</th>
+      <th scope="col">Copy Numb</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>title</td>
-      <td>subTitle</td>
-      <td>autor</td>
-      <td>genres</td>
-      <td>edition</td>
+    <tr *ngFor="let book of books">
+      <td>{{book.bookTitle}}</td>
+      <td>{{book.bookSubTitle}}</td>
+      <td>{{book.bookAutor}}</td>
+      <td>{{book.bookGenres}}</td>
+      <td>{{book.bookPublisher}}</td>
+      <td>{{book.bookEdition}}</td>
+      <td>{{book.bookCopies}}</td>
+      <td><a href="single_book" type="button" class="btn btn-secondary btn-sml">edit</a></td>
+      <td><a type="button" class="btn btn-secondary btn-sml">dell</a></td>
     </tr>
   </tbody>
 </table>
+</div>
 
