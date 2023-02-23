@@ -1,7 +1,12 @@
-<header class="navbar navbar-expand-lg fixed-top bg-dark">
+<div class="row fixed-top body">
+<header class="row navbar bg-dark">
 
-  <div class="container justify-content-center">
+  <div class=" container justify-content-center gap-5">
       <a href="#" class="lib-logo"> Minsait Library</a>
+      <a type="button" (click)="initNewBook()" class="btn btn-success btn-sml">ADD BOOK</a>
+      <a type="button" (click)="initSearch()" class="btn btn-primary btn-sml">SEARCH BOOK</a>
   </div>
-
 </header>
+</div>
+<app-add-book [book]="bookToAdd"></app-add-book>
+<app-search-book [book]="bookToSearch"></app-search-book>

@@ -1,6 +1,5 @@
-<body>
-  <div *ngIf="book">
-    <div class="d-grid justify-content-center">
+<body *ngIf="book">
+    <div class="d-grid justify-content-center body">
         <form>
             <h2>Edit or delete a book</h2>
             <p>make sure you fill in the fields correctly.</p>
@@ -40,17 +39,14 @@
                     <option *ngFor="let genre of genres" >{{genre.genresName}}</option>
                 </select>
             </div>
-            <div class="mt-2">
-              <div class= "text center row">
-                  <div>
-                    <a type="button" class="btn btn-success btn-sml" (click)="editBook(book)">CONFIRM EDIT</a>
+            <div class="mt-2 ">
+              <div class= "text center">
+                    <a type="button" class="btn btn-success btn-sml gap-5" (click)="editBook(book)">CONFIRM EDIT</a>
                     <a type="button" class="btn btn-danger btn-sml"(click)="delBook(book)">DELETE</a>
-                  </div>
               </div>
             </div>
         </form>
     </div>
-  </div>
 </body>
 
 

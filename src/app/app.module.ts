@@ -4,12 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layouts/header/header.component';
-import { MainPageComponent } from './pages/main-page/main-page.component';
-import { SearchBookComponent } from './pages/search-book/search-book.component';
-import { ListBookComponent } from './pages/list-book/list-book.component';
-import { AddBookComponent } from './pages/add-book/add-book.component';
-import { EditBookComponent } from './pages/edit-book/edit-book.component';
+import { HeaderComponent } from './Layouts/header/header.component';
+import { MainPageComponent } from './Layouts/main-page/main-page.component';
+import { SearchBookComponent } from './Layouts/search-book/search-book.component';
+import { ListBookComponent } from './Layouts/list-book/list-book.component';
+import { AddBookComponent } from './Layouts/add-book/add-book.component';
+import { EditBookComponent } from './Layouts/edit-book/edit-book.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -21,7 +21,6 @@ import { FormsModule } from '@angular/forms';
     ListBookComponent,
     AddBookComponent,
     EditBookComponent,
-
   ],
   imports: [
     BrowserModule,

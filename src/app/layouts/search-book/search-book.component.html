@@ -1,5 +1,4 @@
-<body class="box">
-  <div>
+<div *ngIf="book" class="search-box body">
       <form class="row">
         <div class="col-md-4">
           <h2>Search a book in the library</h2>
@@ -7,24 +6,24 @@
           <div class="form-group">
               <div class="row">
                   <div class="col-md-6">
-                      <input  type="text" class="form-control" name="title" placeholder="Title">
+                      <input  [(ngModel)]="book.bookTitle" type="text" class="form-control" name="title" placeholder="Title">
                   </div>
                   <div class="col-md-6">
-                      <input type="text" class="form-control" name="subtitle" placeholder="Sub Title">
+                      <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="subtitle" placeholder="Sub Title">
                   </div>
               </div>
           </div>
             <div class="mt-2">
-              <input type="text" class="form-control" name="autor" placeholder="Autor">
+              <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="autor" placeholder="Autor">
             </div>
           <div class="mt-2">
-              <input type="text" class="form-control" name="publicher" placeholder="Publicher">
+              <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="publicher" placeholder="Publicher">
           </div>
           <div class="mt-2">
-              <input type="text" class="form-control" name="edition" placeholder="Edition">
+              <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="edition" placeholder="Edition">
           </div>
           <div class="mt-2">
-            <input type="text" class="form-control" name="publication" placeholder="Publication">
+            <input [(ngModel)]="book.bookTitle" type="text" class="form-control" name="publication" placeholder="Publication">
         </div>
           <div class="mt-2">
               <label for="genresList">Genres</label>
@@ -62,15 +61,14 @@
                 <td>{{book.bookPublisher}}</td>
                 <td>{{book.bookEdition}}</td>
                 <td>{{book.bookCopies}}</td>
-                <td><a type="button" (click)="BookToUpd(book)" href="single_book" class="btn btn-warning btn-sml">edit</a></td>
+                <td><a type="button" (click)="BookToUpd(book)" class="btn btn-warning btn-sml">edit</a></td>
                 <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml">delete</a></td>
-
               </tr>
             </tbody>
           </table>
         </div>
       </form>
   </div>
-</body>
+
 
 

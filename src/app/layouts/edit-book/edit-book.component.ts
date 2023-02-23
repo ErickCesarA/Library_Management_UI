@@ -1,47 +1,39 @@
-import { Component , Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { BooksModels } from 'src/app/Models/book-model';
 import { GenresModels } from 'src/app/Models/genres-model';
 import { LibManageService } from 'src/app/Services/Lib-Manage.service';
 
 @Component({
-  selector: 'app-list-book',
-  templateUrl: './list-book.component.html',
-  styleUrls: ['./list-book.component.css']
+  selector: 'app-edit-book',
+  templateUrl: './edit-book.component.html',
+  styleUrls: ['./edit-book.component.css']
 })
-export class ListBookComponent {
+export class EditBookComponent {
+
   @Input() book?: BooksModels;
   @Output() bookUpdate = new EventEmitter<BooksModels[]>();
 
   title = 'Lib_Management.UI'
   books: BooksModels[] = [];
   genres: GenresModels [] = [];
-  bookToUpd?: BooksModels;
 
-  constructor(private libmanageService: LibManageService) {}
+  constructor(private libmanageService: LibManageService){}
 
   ngOnInit() : void
   {
-    this.libmanageService
-    .getBooks()
-    .subscribe((result: BooksModels[])=>(this.books = result));
     this.libmanageService
     .getGeres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
 
   }
-  updBookList(books: BooksModels[] )
-  {
-    this.books = books;
-  }
   editBook(book:BooksModels)
   {
-    this.bookToUpd = book;
+    this.libmanageService.editBook(book).subscribe((books)=>this.bookUpdate.emit(books));
 
   }
   delBook(book:BooksModels)
   {
     this.libmanageService.delBook(book).subscribe((books)=>this.bookUpdate.emit(books));
-
   }
 
 }
