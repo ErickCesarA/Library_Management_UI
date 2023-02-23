@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input , Output } from '@angular/core';
 import { BooksModels} from 'src/app/Models/book-model'
 import { GenresModels } from 'src/app/Models/genres-model';
 import { LibManageService } from 'src/app/Services/Lib-Manage.service';
@@ -9,6 +9,9 @@ import { LibManageService } from 'src/app/Services/Lib-Manage.service';
   styleUrls: ['./search-book.component.css']
 })
 export class SearchBookComponent {
+
+  @Input() book?: BooksModels;
+  @Output() bookUpdate = new EventEmitter<BooksModels[]>();
 
   title = 'Lib_Management.UI'
   books: BooksModels[] = [];
@@ -25,6 +28,22 @@ export class SearchBookComponent {
     this.libmanageService
     .getGeres()
     .subscribe((result: GenresModels[])=>(this.genres = result));
+  }
+  updBookList(books: BooksModels[] )
+  {
+    this.books = books;
+  }
+  BookToUpd(book:BooksModels)
+  {
+
+  }
+  delBook(book:BooksModels)
+  {
+    this.libmanageService.delBook(book).subscribe((books)=>this.bookUpdate.emit(books));
+  }
+  getBook(book:BooksModels)
+  {
+    this.libmanageService.getBooks().subscribe((result: BooksModels[])=>(this.books = result));
   }
 
 

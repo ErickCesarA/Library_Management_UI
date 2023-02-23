@@ -24,4 +24,20 @@ export class LibManageService {
   {
     return this.http.get<GenresModels[]>(`${environment.apiUrl}/${this.url2}`)
   }
+
+  public editBook(book : BooksModels) : Observable<BooksModels[]>
+  {
+    return this.http.put<BooksModels[]>(`${environment.apiUrl}/${this.url}`,book)
+  }
+
+  public addBook(book : BooksModels) : Observable<BooksModels[]>
+  {
+    return this.http.post<BooksModels[]>(`${environment.apiUrl}/${this.url}`,book)
+  }
+
+  public delBook(book : BooksModels) : Observable<BooksModels[]>
+  {
+    return this.http.delete<BooksModels[]>(`${environment.apiUrl}/${this.url}/${book.bookTitle}`)
+  }
+
 }

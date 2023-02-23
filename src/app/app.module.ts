@@ -9,7 +9,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { SearchBookComponent } from './pages/search-book/search-book.component';
 import { ListBookComponent } from './pages/list-book/list-book.component';
 import { AddBookComponent } from './pages/add-book/add-book.component';
-import { SingleBookComponent } from './pages/single-book/single-book.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,14 @@ import { SingleBookComponent } from './pages/single-book/single-book.component';
     SearchBookComponent,
     ListBookComponent,
     AddBookComponent,
-    SingleBookComponent,
+    EditBookComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

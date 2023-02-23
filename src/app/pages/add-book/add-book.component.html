@@ -1,5 +1,5 @@
 <body class="box">
-  <div  class="d-grid justify-content-center">
+  <div class="d-grid justify-content-center">
       <form>
           <h2>Add a book to library</h2>
           <p>Try to fill all filds.</p>
@@ -36,17 +36,13 @@
           <div class="mt-2">
               <label for="genresList">Genres</label>
               <select class="form-control" id="genresList">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <option *ngFor="let genre of genres">{{genre.genresName}}</option>
               </select>
           </div>
           <div class="mt-2">
             <div class="text center ">
                 <div>
-                <a type="button" class="btn btn-primary btn-sml">ADD</a>
+                <a *ngIf="book" type="button" class="btn btn-success btn-sml" (click)="addBook(book)" >ADD</a>
                 </div>
             </div>
           </div>

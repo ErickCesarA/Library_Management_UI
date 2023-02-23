@@ -29,6 +29,7 @@
           <div class="mt-2">
               <label for="genresList">Genres</label>
               <select class="form-control" id="genresList">
+                  <option>All Books</option>
                   <option *ngFor="let genre of genres">{{genre.genresName}}</option>
               </select>
           </div>
@@ -61,8 +62,8 @@
                 <td>{{book.bookPublisher}}</td>
                 <td>{{book.bookEdition}}</td>
                 <td>{{book.bookCopies}}</td>
-                <td><a href="single_book" type="button" class="btn btn-primary btn-sml">edit</a></td>
-                <td><a type="button" class="btn btn-primary btn-sml">dell</a></td>
+                <td><a type="button" (click)="BookToUpd(book)" href="single_book" class="btn btn-warning btn-sml">edit</a></td>
+                <td><a type="button" (click)="delBook(book)" class="btn btn-danger btn-sml">delete</a></td>
 
               </tr>
             </tbody>
